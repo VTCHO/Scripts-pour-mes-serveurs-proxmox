@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-GEN_MAC=$(echo '00 60 2f'$(od -An -N3 -t xC /dev/urandom) | sed -e 's/ /:/g' | tr '[:lower:]' '[:upper:]')
+GEN_MAC=$(echo '00 60 2f'"$(od -An -N3 -t xC /dev/urandom)" | sed -e 's/ /:/g' | tr '[:lower:]' '[:upper:]')
 NEXTID=$(pvesh get /cluster/nextid)
 RELEASE=$(curl -sX GET "https://api.github.com/repos/home-assistant/operating-system/releases" | awk '/tag_name/{print $4;exit}' FS='[""]')
 STABLE="8.3"
-YW=`echo "\033[33m"`
-BL=`echo "\033[36m"`
-RD=`echo "\033[01;31m"`
-BGN=`echo "\033[4;92m"`
-GN=`echo "\033[1;92m"`
-DGN=`echo "\033[32m"`
-CL=`echo "\033[m"`
+YW=$("\033[33m")
+BL=$("\033[36m")
+RD=$("\033[01;31m")
+BGN=$("\033[4;92m")
+GN=$("\033[1;92m")
+DGN=$("\033[32m")
+CL=$("\033[m")
 BFR="\\r\\033[K"
 HOLD="-"
 CM="${GN}✓${CL}"
