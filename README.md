@@ -1719,7 +1719,7 @@ ________________________________________________________________________________
 To create a new Proxmox WireGuard LXC, run the following in the Proxmox Shell.
 
 ```
-bash -c "$(wget -qLO - https://github.com/VTCHO/Scripts-pour-mes-serveurs-proxmox/blob/main/ct/wireguard-v3.sh)"
+bash -c "$(wget -qLO - https://github.com/VTCHO/Scripts-pour-mes-serveurs-proxmox/raw/main/ct/wireguard-v3.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
