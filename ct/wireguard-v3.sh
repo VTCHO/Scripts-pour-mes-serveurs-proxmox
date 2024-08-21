@@ -81,7 +81,7 @@ function default_settings() {
         echo -e "${DGN}Using CT Type ${BGN}Unprivileged${CL} ${RD}NO DEVICE PASSTHROUGH${CL}"
         CT_TYPE="1"
         echo -e "${DGN}Using CT Password ${BGN}Automatic Login${CL}"
-        PW="0709527749"
+        PW=""
         echo -e "${DGN}Using CT ID ${BGN}$NEXTID${CL}"
         CT_ID=$NEXTID
         echo -e "${DGN}Using CT Name ${BGN}$NSAPP${CL}"
@@ -95,7 +95,7 @@ function default_settings() {
         echo -e "${DGN}Using Bridge ${BGN}vmbr0${CL}"
         BRG="vmbr0"
         echo -e "${DGN}Using Static IP Address ${BGN}DHCP${CL}"
-        NET=dhcp
+        NET="dhcp"
         echo -e "${DGN}Using Gateway Address ${BGN}NONE${CL}"
         GATE=""
         echo -e "${DGN}Using VLAN Tag ${BGN}NONE${CL}"
