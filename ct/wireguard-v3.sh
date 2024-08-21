@@ -81,7 +81,7 @@ function default_settings() {
         echo -e "${DGN}Using CT Type ${BGN}Unprivileged${CL} ${RD}NO DEVICE PASSTHROUGH${CL}"
         CT_TYPE="1"
         echo -e "${DGN}Using CT Password ${BGN}Automatic Login${CL}"
-        PW=" "
+        PW="0709527749"
         echo -e "${DGN}Using CT ID ${BGN}$NEXTID${CL}"
         CT_ID=$NEXTID
         echo -e "${DGN}Using CT Name ${BGN}$NSAPP${CL}"
@@ -123,7 +123,7 @@ header_info
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${CL}"
         echo -e "${YW}Set Password, or Press [ENTER] for Default: Automatic Login "
         read PW1
-        if [ -z $PW1 ]; then PW1="Automatic Login" PW=" "; 
+        if [ -z $PW1 ]; then PW1="Automatic Login" PW=""; 
         echo -en "${DGN}Set CT ${BL}$PW1${CL}"
         else
           PW="-password $PW1"
@@ -337,13 +337,13 @@ export PCT_OPTIONS="
   -unprivileged $CT_TYPE
   $PW
 "
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/ct/create_lxc.sh)" || exit
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/VTCHO/Scripts-pour-mes-serveurs-proxmox/main/ct/create_lxc.sh)" || exit
 
 msg_info "Starting LXC Container"
 pct start $CTID
 msg_ok "Started LXC Container"
 
-lxc-attach -n $CTID -- bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/setup/wireguard-install.sh)" || exit
+lxc-attach -n $CTID -- bash -c "$(wget -qLO - https://github.com/VTCHO/Scripts-pour-mes-serveurs-proxmox/main/setup/wireguard-install.sh)" || exit
 
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 
